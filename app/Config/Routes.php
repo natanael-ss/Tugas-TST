@@ -5,7 +5,6 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'AuthController::landing');
 
 
 $routes->post('auth/register', 'AuthController::register');
