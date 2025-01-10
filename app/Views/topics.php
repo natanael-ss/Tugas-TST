@@ -10,10 +10,17 @@
 <body class="bg-gray-100 min-h-screen p-8">
     <div class="max-w-4xl mx-auto">
         <div class="bg-white rounded-lg shadow-md p-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                <i class="fas fa-book-open mr-3 text-indigo-600"></i>
-                Available Topics
-            </h2>
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+                    <i class="fas fa-book-open mr-3 text-indigo-600"></i>
+                    Available Topics
+                </h2>
+                <a href="/latihan" 
+                   class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                    <i class="fas fa-graduation-cap mr-2"></i>
+                    Latihan
+                </a>
+            </div>
             
             <div class="grid gap-4">
                 <?php foreach ($topics as $topic): ?>

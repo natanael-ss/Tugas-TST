@@ -15,3 +15,7 @@ $routes->get('auth/login', 'AuthController::showLoginForm');
 
 $routes->get('/topik', 'TopicsController::showTopics');
 $routes->get('/topik/(:num)', 'TopicsController::showTopicDetail/$1');
+
+
+$routes->get('latihan', 'AuthController::latihan');
+

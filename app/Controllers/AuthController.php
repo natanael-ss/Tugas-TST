@@ -78,4 +78,9 @@ class AuthController extends ResourceController
             return $this->failUnauthorized('Invalid email or password');
         }
     }
+
+    public function latihan()
+    {
+        return view('latihan');
+    }
 }
