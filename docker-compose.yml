@@ -7,7 +7,7 @@ services:
       dockerfile: DockerFile
     container_name: mambo-materi
     depends_on:
-      - db
+      - db-materi
     ports:
       - "8081:80"
     volumes:
@@ -25,9 +25,9 @@ services:
     networks:
       - app_network
 
-  db:
+  db-materi:
     image: postgres:17
-    container_name: db
+    container_name: db-materi
     expose:
       - "5432"
     environment:
@@ -37,7 +37,7 @@ services:
       - POSTGRES_HOST=${DB_HOST}          # From .env
       - POSTGRES_PORT=${DB_PORT}          # From .env
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data1
     env_file:
       - .env  # Load environment variables for the database service
     networks:
