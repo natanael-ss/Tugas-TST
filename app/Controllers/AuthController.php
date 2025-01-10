@@ -8,6 +8,11 @@ use App\Models\UsersModel;
 class AuthController extends ResourceController
 {
 
+    public function landing()
+    {
+        return view('landing_page');
+    }
+
     public function showRegisterForm()
     {
         return view('register');
