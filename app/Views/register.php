@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <script>
         async function submitForm(event) {
-            event.preventDefault(); // Cegah form submit default
+            event.preventDefault();
             const form = event.target;
-
-            // Ambil data form
             const formData = {
                 username: form.username.value,
                 email: form.email.value,
@@ -17,7 +16,6 @@
                 role: form.role.value
             };
 
-            // Kirim data sebagai JSON menggunakan fetch
             const response = await fetch('/auth/register', {
                 method: 'POST',
                 headers: {
@@ -26,35 +24,51 @@
                 body: JSON.stringify(formData)
             });
 
-            // Tangani respon dari server
             const result = await response.json();
             if (response.ok) {
-                alert(result.message); // Sukses
+                alert(result.message);
             } else {
-                alert(result.message || 'Registration failed'); // Gagal
+                alert(result.message || 'Registration failed');
             }
         }
     </script>
 </head>
-<body>
-    <h2>Register</h2>
-    <form onsubmit="submitForm(event)">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-96">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">Create Account</h2>
+        <form onsubmit="submitForm(event)" class="space-y-6">
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                <input type="text" id="username" name="username" required 
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" name="email" required 
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
 
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" name="password" required 
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
 
-        <label for="role">Role:</label><br>
-        <select id="role" name="role">
-            <option value="student">Student</option>
-            <option value="admin">Admin</option>
-        </select><br><br>
+            <div>
+                <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
+                <select id="role" name="role" 
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="student">Student</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
 
-        <button type="submit">Register</button>
-    </form>
+            <button type="submit" 
+                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Register
+            </button>
+        </form>
+    </div>
 </body>
 </html>
